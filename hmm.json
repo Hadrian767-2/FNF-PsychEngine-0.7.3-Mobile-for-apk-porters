@@ -1,0 +1,92 @@
+{
+  "dependencies": [
+    {
+      "name": "lime",
+      "type": "haxelib",
+      "version": "8.0.2"
+    },
+    {
+      "name": "openfl",
+      "type": "haxelib",
+      "version": null
+    },
+    {
+      "name": "flixel",
+      "type": "haxelib",
+      "version": "5.5.0"
+    },
+    {
+      "name": "flixel-addons",
+      "type": "haxelib",
+      "version": "3.0.2"
+    },
+    {
+      "name": "flixel-tools",
+      "type": "haxelib",
+      "version": null
+    },
+    {
+      "name": "flixel-ui",
+      "type": "haxelib",
+      "version": null
+    },
+    {
+      "name": "torchsfunctions",
+      "type": "haxelib",
+      "version": null
+    },
+    {
+      "name": "extension-androidtools",
+      "type": "haxelib",
+      "version": "1.8.0"
+    },
+    {
+      "name": "hxcpp",
+      "type": "git",
+      "dir": null,
+      "ref": "master",
+      "url": "https://github.com/HaxeFoundation/hxcpp"
+    },
+    {
+      "name": "hxCodec",
+      "type": "haxelib",
+      "version": null
+    },
+    {
+      "name": "hxcpp-debug-server",
+      "type": "haxelib",
+      "version": null
+    },
+    {
+      "name": "tjson",
+      "type": "haxelib",
+      "version": null
+    },
+    {
+      "name": "extension-androidtools",
+      "type": "haxelib",
+      "version": "1.8.0"
+    },
+    {
+      "name": "flxanimate",
+      "type": "git",
+      "dir": null,
+      "ref": "main-mobile",
+      "url": "https://github.com/MaysLastPlays-Stuff/flxanimate"
+    },
+    {
+      "name": "SScript",
+      "type": "git",
+      "dir": null,
+      "ref": "master",
+      "url": "https://github.com/MaysLastPlays-Stuff/SScript"
+    },
+    {
+      "name": "linc_luajit",
+      "type": "git",
+      "dir": null,
+      "ref": "main",
+      "url": "https://github.com/mcagabe19-stuff/linc_luajit-rewriten"
+    }
+  ]
+}
