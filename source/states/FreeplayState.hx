@@ -188,6 +188,11 @@ class FreeplayState extends MusicBeatState
 		
 		changeSelection();
 		updateTexts();
+
+                #if mobile
+		addVirtualPad(LEFT_FULL, A_B_C_X_Y_Z);
+		#end
+
 		super.create();
 	}
 
@@ -239,7 +244,7 @@ class FreeplayState extends MusicBeatState
 			ratingSplit[1] += '0';
 
 		var shiftMult:Int = 1;
-		if(FlxG.keys.pressed.SHIFT) shiftMult = 3;
+		if(FlxG.keys.pressed.SHIFT #if mobile || virtualPad.buttonC.justPressed #end) shiftMult = 3;
 
 		if (!player.playingMusic)
 		{
@@ -323,12 +328,12 @@ class FreeplayState extends MusicBeatState
 			}
 		}
 
-		if(FlxG.keys.justPressed.CONTROL && !player.playingMusic)
+		if(FlxG.keys.justPressed.CONTROL #if mobile || virtualPad.buttonX.justPressed #end && !player.playingMusic)
 		{
 			persistentUpdate = false;
 			openSubState(new GameplayChangersSubstate());
 		}
-		else if(FlxG.keys.justPressed.SPACE)
+		else if(FlxG.keys.justPressed.SPACE #if mobile || virtualPad.buttonY.justPressed #end)
 		{
 			if(instPlaying != curSelected && !player.playingMusic)
 			{
@@ -446,7 +451,7 @@ class FreeplayState extends MusicBeatState
 			DiscordClient.loadModRPC();
 			#end
 		}
-		else if(controls.RESET && !player.playingMusic)
+		else if(controls.RESET #if mobile || virtualPad.buttonZ.justPressed #end && !player.playingMusic)
 		{
 			persistentUpdate = false;
 			openSubState(new ResetScoreSubState(songs[curSelected].songName, curDifficulty, songs[curSelected].songCharacter));

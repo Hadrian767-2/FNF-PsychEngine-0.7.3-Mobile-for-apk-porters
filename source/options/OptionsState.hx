@@ -23,19 +23,32 @@ class OptionsState extends MusicBeatState
 		switch(label)
 		{
 			case 'Note Colors':
+				#if mobile
+			    removeVirtualPad();
+			    #end
 				openSubState(new options.NotesColorSubState());
 			case 'Controls':
+                                #if mobile
+			    removeVirtualPad();
+			    #end
 				openSubState(new options.ControlsSubState());
 			case 'Graphics':
+                                #if mobile
+			    removeVirtualPad();
+			    #end
 				openSubState(new options.GraphicsSettingsSubState());
 			case 'Visuals':
+				#if mobile
+			    removeVirtualPad();
+			    #end
 				openSubState(new options.VisualsSettingsSubState());
 			case 'Gameplay':
+				#if mobile
+			    removeVirtualPad();
+			    #end
 				openSubState(new options.GameplaySettingsSubState());
 			case 'Adjust Delay and Combo':
 				MusicBeatState.switchState(new options.NoteOffsetState());
-			case 'Language':
-				openSubState(new options.LanguageSubState());
 		}
 	}
 
@@ -75,6 +88,10 @@ class OptionsState extends MusicBeatState
 		changeSelection();
 		ClientPrefs.saveSettings();
 
+		#if mobile
+		addVirtualPad(UP_DOWN, A_B_X_Y);
+		#end
+
 		super.create();
 	}
 
@@ -94,6 +111,18 @@ class OptionsState extends MusicBeatState
 			changeSelection(-1);
 		if (controls.UI_DOWN_P)
 			changeSelection(1);
+
+                #if mobile
+		if (virtualPad.buttonX.justPressed)
+		{
+			removeVirtualPad();
+			openSubState(new mobile.MobileControlsSubState());
+		}
+		if (virtualPad.buttonY.justPressed) {
+			removeVirtualPad();
+			openSubState(new mobile.AndroidSettingsSubState());
+		}
+		#end
 
 		if (controls.BACK)
 		{
